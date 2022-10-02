@@ -4,14 +4,14 @@ import java.util.Arrays;
 
 public class Ouvrage {
 	private static final int NB_MAX_EXEMPLAIRES = 50;
-	
+
 	private Exemplaire[] lesExemplaires;
 	private String titre;
 	private String auteurs;
 	private String editeur;
 	private int anneeDeParution;
 	private String isbn;
-	private int nbExemplaires=0;
+	private int nbExemplaires = 0;
 
 	public Ouvrage(String titre, String auteurs, String editeur, int anneeDeParution, String isbn) {
 		super();
@@ -71,6 +71,11 @@ public class Ouvrage {
 	public int getNbExemplaires() {
 		return nbExemplaires;
 	}
-	
-	
+
+	public void ajouterExemplaire(Exemplaire exemplaireAAjouter) {
+		if (nbExemplaires < NB_MAX_EXEMPLAIRES) {
+			lesExemplaires[nbExemplaires++] = exemplaireAAjouter;
+		}
+	}
+
 }

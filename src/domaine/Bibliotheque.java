@@ -1,6 +1,7 @@
 package domaine;
 
 public class Bibliotheque {
+	private static final int NB_MAX_OUVRAGES = 30;
 	private Ouvrage [] fonds;
 	private int nbOuvrages;
 	
@@ -25,5 +26,10 @@ public class Bibliotheque {
 	public int getNbOuvrages() {
 		return nbOuvrages;
 	}
-	
+
+	public void ajouterOuvrage(Ouvrage ouvrageAAjouter) {
+		if (nbOuvrages<NB_MAX_OUVRAGES)  {
+			fonds[nbOuvrages++] = ouvrageAAjouter;
+		}
+	}
 }
