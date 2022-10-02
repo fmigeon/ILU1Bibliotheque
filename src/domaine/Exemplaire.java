@@ -10,4 +10,34 @@ public class Exemplaire {
 	public Exemplaire(String cote) {
 		this.cote = cote;
 	}
+
+	/**
+	 * @return the cote
+	 */
+	public String getCote() {
+		return cote;
+	}
+
+	/**
+	 * @return the empruntable
+	 */
+	public boolean isEmpruntable() {
+		return empruntable;
+	}
+
+	/**
+	 * @return the consultableEnLigne
+	 */
+	public boolean isConsultableEnLigne() {
+		return consultableEnLigne;
+	}
+
+	/**
+	 * @return the emprunte
+	 */
+	public boolean isEmprunte() {
+		return emprunte;
+	}
+	
+	
 }

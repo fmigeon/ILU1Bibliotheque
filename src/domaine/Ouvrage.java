@@ -22,4 +22,55 @@ public class Ouvrage {
 		this.anneeDeParution = anneeDeParution;
 		this.isbn = isbn;
 	}
+
+	/**
+	 * @return the lesExemplaires
+	 */
+	public Exemplaire[] getLesExemplaires() {
+		return lesExemplaires;
+	}
+
+	/**
+	 * @return the titre
+	 */
+	public String getTitre() {
+		return titre;
+	}
+
+	/**
+	 * @return the auteurs
+	 */
+	public String getAuteurs() {
+		return auteurs;
+	}
+
+	/**
+	 * @return the editeur
+	 */
+	public String getEditeur() {
+		return editeur;
+	}
+
+	/**
+	 * @return the anneeDeParution
+	 */
+	public int getAnneeDeParution() {
+		return anneeDeParution;
+	}
+
+	/**
+	 * @return the isbn
+	 */
+	public String getIsbn() {
+		return isbn;
+	}
+
+	/**
+	 * @return the nbExemplaires
+	 */
+	public int getNbExemplaires() {
+		return nbExemplaires;
+	}
+	
+	
 }
