@@ -14,6 +14,10 @@ public class CreatingAndAccessingExemplaries {
 		
 		Exemplaire bseAConsulter = new Exemplaire(getNewCote());
 		
+		System.out.println(maBibliotheque);
+		System.out.println(bse);
+		System.out.println(bseAConsulter);
+		
 	}
 
 // Les cotes des exemplaires seront implantés par un compteur tout simple qui augmente à chaque appel
