@@ -77,5 +77,15 @@ public class Ouvrage {
 			lesExemplaires[nbExemplaires++] = exemplaireAAjouter;
 		}
 	}
+	
+	@Override
+	public String toString() {
+		String result = "Ouvrage [titre=" + titre + ", auteurs=" + auteurs + ", editeur=" + editeur + ", anneeDeParution="
+				+ anneeDeParution + ", isbn=" + isbn + "]\n";
+		for (int i = 0 ; i < nbExemplaires ; i++) {
+			result += "   + "+lesExemplaires[i];
+		}
+		return result;
+	}
 
 }

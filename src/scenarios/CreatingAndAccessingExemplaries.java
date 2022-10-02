@@ -16,6 +16,11 @@ public class CreatingAndAccessingExemplaries {
 		
 		maBibliotheque.ajouterOuvrage(bse);
 		bse.ajouterExemplaire(bseAConsulter);
+
+		System.out.println(maBibliotheque);
+		System.out.println(bse);
+		System.out.println(bseAConsulter);
+		
 	}
 
 // Les cotes des exemplaires seront implantés par un compteur tout simple qui augmente à chaque appel
