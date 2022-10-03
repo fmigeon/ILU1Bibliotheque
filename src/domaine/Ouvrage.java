@@ -11,12 +11,13 @@ public class Ouvrage {
 	private String editeur;
 	private int anneeDeParution;
 	private String isbn;
-	private int nbExemplaires=0;
+	private int nbExemplaires = 0;
 	private String prefixeCote;
-	
+
 	private GenreLitteraire genre;
 
-	public Ouvrage(GenreLitteraire genre, String titre, String auteurs, String editeur, int anneeDeParution, String isbn, String prefixeCote) {
+	public Ouvrage(GenreLitteraire genre, String titre, String auteurs, String editeur, int anneeDeParution,
+			String isbn, String prefixeCote) {
 		super();
 		this.lesExemplaires = new Exemplaire[NB_MAX_EXEMPLAIRES];
 		this.titre = titre;
@@ -76,31 +77,59 @@ public class Ouvrage {
 	public int getNbExemplaires() {
 		return nbExemplaires;
 	}
-	
+
 	/**
-	 * Numero unique généré à partir d'un préfixe unique par ouvrage et de l'index dans le tableau d'ouvrage.
-	 * @return si l'exemplaire a pu effectivement être ajouté à l'ouvrage.
-	 *         Plus tard, on verra le mécanisme des exceptions pour signaler un
-	 *         probleme ou pas de l'insertion
+	 * Numero unique généré à partir d'un préfixe unique par ouvrage et de l'index
+	 * dans le tableau d'ouvrage.
+	 * 
+	 * @return si l'exemplaire a pu effectivement être ajouté à l'ouvrage. Plus
+	 *         tard, on verra le mécanisme des exceptions pour signaler un probleme
+	 *         ou pas de l'insertion
 	 */
 	public boolean ajouterExemplaire() {
 		if (nbExemplaires < NB_MAX_EXEMPLAIRES) {
-			lesExemplaires[nbExemplaires] = new Exemplaire(prefixeCote+"-"+nbExemplaires);
+			lesExemplaires[nbExemplaires] = new Exemplaire(prefixeCote + "-" + nbExemplaires);
 			nbExemplaires++;
+			assert isInvariantSatisfied();
 			return true;
 		} else {
+			assert isInvariantSatisfied();
 			return false;
 		}
 	}
-	
+
 	@Override
 	public String toString() {
-		String result = "Ouvrage [titre=" + titre + ", auteurs=" + auteurs + ", editeur=" + editeur + ", anneeDeParution="
-				+ anneeDeParution + ", isbn=" + isbn + "]\n";
-		for (int i = 0 ; i < nbExemplaires ; i++) {
-			result += "   + "+lesExemplaires[i];
+		String result = "Ouvrage [titre=" + titre + ", auteurs=" + auteurs + ", editeur=" + editeur
+				+ ", anneeDeParution=" + anneeDeParution + ", isbn=" + isbn + "]\n";
+		for (int i = 0; i < nbExemplaires; i++) {
+			result += "   + " + lesExemplaires[i];
 		}
 		return result;
+	}
+
+
+	private boolean pasDeTrousAGauche() {
+		boolean pasDeTrou = true;
+		int i;
+		for (i = 0; i < nbExemplaires && pasDeTrou; i++) {
+			pasDeTrou = pasDeTrou && lesExemplaires[i] != null;
+		}
+		return (i == nbExemplaires) || (!pasDeTrou);
+	}
+	
+	private boolean toutVideADroite() {
+		boolean toutVide = true;
+		int i;
+		for (i = nbExemplaires; i < lesExemplaires.length && toutVide; i++) {
+			toutVide = toutVide && lesExemplaires[i] == null;
+		}
+		return (i == lesExemplaires.length) || (!toutVide);
+	
+	}
+	
+	private boolean isInvariantSatisfied() {
+		return  pasDeTrousAGauche() && toutVideADroite();
 	}
 
 }
