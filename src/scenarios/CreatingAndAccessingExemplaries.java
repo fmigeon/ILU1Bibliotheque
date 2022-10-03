@@ -13,6 +13,7 @@ public class CreatingAndAccessingExemplaries {
 				
 		Ouvrage ouv = new Ouvrage("truc", "bidule", "trucmuche", 0, "XXX", "WHAT?");
 		Exemplaire ex = new Exemplaire("???");
+
 	}
 
 }

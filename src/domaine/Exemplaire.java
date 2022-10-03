@@ -38,6 +38,13 @@ public class Exemplaire {
 	public boolean isEmprunte() {
 		return emprunte;
 	}
+
+	@Override
+	public String toString() {
+		return "Exemplaire [cote=" + cote + ", empruntable=" + empruntable + ", consultableEnLigne="
+				+ consultableEnLigne + ", emprunte=" + emprunte + "]";
+	}
+	
 	
 	
 }

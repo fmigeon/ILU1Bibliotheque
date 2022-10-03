@@ -43,5 +43,14 @@ public class Bibliotheque {
 		}
 
 	}
-
+	
+	@Override
+	public String toString() {
+		String textualState = "Bibliotheque d'un fonds de "+nbOuvrages+ " ouvrages :\n";
+		for(int indexOuvrage = 0;indexOuvrage<nbOuvrages;indexOuvrage++) {
+			textualState += "- "+ fonds[indexOuvrage];
+		}
+		return textualState;
+	}
+	
 }

@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Ouvrage {
 	private static final int NB_MAX_EXEMPLAIRES = 50;
-	
+
 	private Exemplaire[] lesExemplaires;
 	private String titre;
 	private String auteurs;
@@ -91,4 +91,14 @@ public class Ouvrage {
 		}
 	}
 	
+	@Override
+	public String toString() {
+		String result = "Ouvrage [titre=" + titre + ", auteurs=" + auteurs + ", editeur=" + editeur + ", anneeDeParution="
+				+ anneeDeParution + ", isbn=" + isbn + "]\n";
+		for (int i = 0 ; i < nbExemplaires ; i++) {
+			result += "   + "+lesExemplaires[i];
+		}
+		return result;
+	}
+
 }
