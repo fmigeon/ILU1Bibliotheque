@@ -12,8 +12,10 @@ public class Ouvrage {
 	private int anneeDeParution;
 	private String isbn;
 	private int nbExemplaires=0;
+	
+	private String prefixeCote;
 
-	public Ouvrage(String titre, String auteurs, String editeur, int anneeDeParution, String isbn) {
+	public Ouvrage(String titre, String auteurs, String editeur, int anneeDeParution, String isbn, String prefixeCote) {
 		super();
 		this.lesExemplaires = new Exemplaire[NB_MAX_EXEMPLAIRES];
 		this.titre = titre;
@@ -21,6 +23,7 @@ public class Ouvrage {
 		this.editeur = editeur;
 		this.anneeDeParution = anneeDeParution;
 		this.isbn = isbn;
+		this.prefixeCote = prefixeCote;
 	}
 
 	/**
@@ -73,14 +76,15 @@ public class Ouvrage {
 	}
 	
 	/**
-	 * @param cote le numero de codage de l'exemplaire dans la bibliotheque. Numero unique qui pose probleme pour sa génération
+	 * Numero unique généré à partir d'un préfixe unique par ouvrage et de l'index dans le tableau d'ouvrage.
 	 * @return si l'exemplaire a pu effectivement être ajouté à l'ouvrage.
 	 *         Plus tard, on verra le mécanisme des exceptions pour signaler un
 	 *         probleme ou pas de l'insertion
 	 */
-	public boolean ajouterExemplaire(String cote) {
+	public boolean ajouterExemplaire() {
 		if (nbExemplaires < NB_MAX_EXEMPLAIRES) {
-			lesExemplaires[nbExemplaires++] = new Exemplaire(cote);
+			lesExemplaires[nbExemplaires] = new Exemplaire(prefixeCote+"-"+nbExemplaires);
+			nbExemplaires++;
 			return true;
 		} else {
 			return false;

@@ -24,7 +24,6 @@ public class Bibliotheque {
 	}
 
 	/**
-	 * 
 	 * @param titre
 	 * @param auteurs
 	 * @param editeur
@@ -38,7 +37,8 @@ public class Bibliotheque {
 		if (nbOuvrages > fonds.length - 1) {
 			return false;
 		} else {
-			fonds[nbOuvrages++] = new Ouvrage(titre, auteurs, editeur, anneeDeParution, isbn);
+			fonds[nbOuvrages] = new Ouvrage(titre, auteurs, editeur, anneeDeParution, isbn,"/"+nbOuvrages);
+			nbOuvrages++;
 			return true;
 		}
 
