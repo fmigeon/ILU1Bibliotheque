@@ -11,12 +11,8 @@ public class CreatingAndAccessingExemplaries {
 		Bibliotheque maBibliotheque = new Bibliotheque(50);
 		maBibliotheque.ajouterOuvrage("Beginning Software Engineering", "Rod Stephens", "wrox", 2015, "978-1-1118-969114-454500");
 				
+		Ouvrage ouv = new Ouvrage("truc", "bidule", "trucmuche", 0, "XXX", "WHAT?");
+		Exemplaire ex = new Exemplaire("???");
 	}
-
-// Les cotes des exemplaires seront implantés par un compteur tout simple qui augmente à chaque appel
-	private static String getNewCote() {
-		return ++coteCount+"";
-	}
-	private static int coteCount = 0;
 
 }
