@@ -24,6 +24,7 @@ public class Bibliotheque {
 	}
 
 	/**
+	 * @param genre
 	 * @param titre
 	 * @param auteurs
 	 * @param editeur
@@ -33,11 +34,11 @@ public class Bibliotheque {
 	 *         Plus tard, on verra le mécanisme des exceptions pour signaler un
 	 *         probleme ou pas de l'insertion
 	 */
-	public boolean ajouterOuvrage(String titre, String auteurs, String editeur, int anneeDeParution, String isbn) {
+	public boolean ajouterOuvrage(GenreLitteraire genre, String titre, String auteurs, String editeur, int anneeDeParution, String isbn) {
 		if (nbOuvrages > fonds.length - 1) {
 			return false;
 		} else {
-			fonds[nbOuvrages] = new Ouvrage(titre, auteurs, editeur, anneeDeParution, isbn,"/"+nbOuvrages);
+			fonds[nbOuvrages] = new Ouvrage(genre, titre, auteurs, editeur, anneeDeParution, isbn,"/"+nbOuvrages);
 			nbOuvrages++;
 			return true;
 		}

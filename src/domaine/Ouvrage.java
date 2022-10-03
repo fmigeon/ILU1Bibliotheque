@@ -12,10 +12,11 @@ public class Ouvrage {
 	private int anneeDeParution;
 	private String isbn;
 	private int nbExemplaires=0;
-	
 	private String prefixeCote;
+	
+	private GenreLitteraire genre;
 
-	public Ouvrage(String titre, String auteurs, String editeur, int anneeDeParution, String isbn, String prefixeCote) {
+	public Ouvrage(GenreLitteraire genre, String titre, String auteurs, String editeur, int anneeDeParution, String isbn, String prefixeCote) {
 		super();
 		this.lesExemplaires = new Exemplaire[NB_MAX_EXEMPLAIRES];
 		this.titre = titre;
@@ -24,6 +25,7 @@ public class Ouvrage {
 		this.anneeDeParution = anneeDeParution;
 		this.isbn = isbn;
 		this.prefixeCote = prefixeCote;
+		this.genre = genre;
 	}
 
 	/**
