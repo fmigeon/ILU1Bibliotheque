@@ -72,5 +72,19 @@ public class Ouvrage {
 		return nbExemplaires;
 	}
 	
+	/**
+	 * @param cote le numero de codage de l'exemplaire dans la bibliotheque. Numero unique qui pose probleme pour sa génération
+	 * @return si l'exemplaire a pu effectivement être ajouté à l'ouvrage.
+	 *         Plus tard, on verra le mécanisme des exceptions pour signaler un
+	 *         probleme ou pas de l'insertion
+	 */
+	public boolean ajouterExemplaire(String cote) {
+		if (nbExemplaires < NB_MAX_EXEMPLAIRES) {
+			lesExemplaires[nbExemplaires++] = new Exemplaire(cote);
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 }
