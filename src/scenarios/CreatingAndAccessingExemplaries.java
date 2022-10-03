@@ -21,6 +21,9 @@ public class CreatingAndAccessingExemplaries {
 		System.out.println(bse);
 		System.out.println(bseAConsulter);
 		
+		Ouvrage jin = new Ouvrage("Java in a nutshell, 7th Edition", "Ben Evans & David Flanagan", "O'Reilly", 2018, "9781492037255");
+		jin.ajouterExemplaire(bseAConsulter);
+		
 	}
 
 // Les cotes des exemplaires seront implantés par un compteur tout simple qui augmente à chaque appel
